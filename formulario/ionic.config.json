@@ -1,0 +1,8 @@
+{
+  "name": "formulario",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

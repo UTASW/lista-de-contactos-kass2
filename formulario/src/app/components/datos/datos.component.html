@@ -1,0 +1,48 @@
+
+<div *ngIf="servicios.arrPersonas.Length !== 0">
+  <ion-card *ngFor="let item of servicios.arrPersonas">
+    <div [ngClass]="{'blue': item.genero,'rosa': !item.genero}">
+    <ion-card-header >
+      <div>
+      <ion-icon name="person-circle-outline" color="light" slot="start" size="large"></ion-icon>
+      <ion-label style="color:black; font-size: 18px;">{{item.Nombre}}</ion-label>
+    </div>
+
+    <div>
+      <ion-icon name="mail-outline" color="light" slot="start" size="large"></ion-icon>
+      <ion-label style="color:black; font-size: 15px;">{{item.Correo}}</ion-label>
+    </div>
+
+    <div> 
+      <ion-icon name="call-outline" color="light" slot="start" size="large"></ion-icon>
+      <ion-label style="color:black; font-size: 15px;">{{item.Telefono}}</ion-label>
+    </div>
+
+    <div>
+      <ion-icon name="person-circle-outline" color="light" slot="start" size="large"></ion-icon>
+      <ion-label style="color:black; font-size: 18px;">Nacio el {{item.fecha|date}}</ion-label>
+    </div>
+
+    <div style="text-align: right;">
+    <ion-button color='danger' (click)="servicios.eliminar(item)">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+  <div *ngIf="servicios.shownotes===false; else show">
+
+  </div>
+      <ng-template #show>
+        <h3>{{item.Notas}}</h3>
+      </ng-template>
+
+    </ion-card-header>
+  </div>
+
+  </ion-card>
+</div>
+<div  [ngClass]="mostrarDivd?'blue':'rosa'">
+<div *ngIf="servicios.arrPersonas.length === 0" >
+  <h1 style="text-align: center; margin-top: 40px;" >No se han agrgado contactos</h1>
+</div>
+</div>
